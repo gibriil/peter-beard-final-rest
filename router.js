@@ -5,12 +5,6 @@ import {
 
 export const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.jsonp({
-        key: 'value'
-    });
-});
-
 router.post(`/characters/create`, (req, res) => {
     let character = new Character({
         name: req.body.name,
@@ -29,6 +23,7 @@ router.get(`/characters/:id`, (req, res) => {
         res.jsonp(result);
     }).catch(error => console.log(error));
 });
+
 
 router.get(`/characters`, (req, res) => {
     Character.find().then(result => {
