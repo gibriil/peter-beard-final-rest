@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post(`/create-character`, (req, res) => {
+router.post(`/characters/create`, (req, res) => {
     let character = new Character({
         name: req.body.name,
         level: req.body.level,
@@ -36,7 +36,8 @@ router.get(`/characters`, (req, res) => {
     }).catch(error => console.log(error));
 });
 
-router.put(`/update-character`, (req, res) => {
+
+router.put(`/characters/update`, (req, res) => {
     Character.findById(req.body._id).then(character => {
         if (character) {
             let character = new Character({
@@ -49,7 +50,7 @@ router.put(`/update-character`, (req, res) => {
 });
 
 
-router.delete(`/delete-character`, (req, res) => {
+router.delete(`/character/delete`, (req, res) => {
     console.log(req.body._id);
     Character.findByIdAndDelete(req.body._id).then(result => {
         res.send('deleted');
