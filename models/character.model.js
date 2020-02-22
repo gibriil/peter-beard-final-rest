@@ -1,7 +1,7 @@
 import Mongoose from "mongoose";
 const Schema = Mongoose.Schema;
 
-const weaponSchema = newSchema({
+const weaponSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -23,7 +23,7 @@ const weaponSchema = newSchema({
         required: true,
     }
 });
-const armourSchema = newSchema({
+const armourSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -41,13 +41,13 @@ const armourSchema = newSchema({
         required: true
     }
 });
-const languageSchema = newSchema({
+const languageSchema = new Schema({
     language: {
         type: String,
         required: true
     }
 });
-const spellSchema = newSchema({
+const spellSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -68,18 +68,18 @@ const characterSchema = new Schema({
     kin: {
         type: String,
         required: true,
-        enum: [`human`, `dwarf`, `elf`, `fairy`, `hobbit`, `leprechaun`],
-        default: `human`
+        enum: ['human', 'dwarf', 'elf', 'fairy', 'hobbit', 'leprechaun'],
+        default: 'human'
     },
     type: {
         type: String,
         required: true,
-        enum: [`warrior`, `wizard`, `rouge`, `warrior-wizard`]
+        enum: ['warrior', 'wizard', 'rouge', 'warrior-wizard']
     },
     sex: {
         type: String,
         required: true,
-        enum: [`male`, `female`]
+        enum: ['male', 'female']
     },
     lvl: {
         type: Number,
@@ -92,7 +92,7 @@ const characterSchema = new Schema({
         required: true
     },
     weight: {
-        type: String,
+        type: Number,
         required: true
     },
     primeAtts: {
@@ -140,7 +140,8 @@ const characterSchema = new Schema({
     },
     ap: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     weapons: [weaponSchema],
     armour: [armourSchema],
@@ -148,8 +149,8 @@ const characterSchema = new Schema({
     magic: [spellSchema],
     other: {
         type: String,
-        required: true
+        // required: true
     }
 });
 
-export const Character = Mongoose.model(`Character`, characterSchema);
+export const Character = Mongoose.model('Character', characterSchema);
