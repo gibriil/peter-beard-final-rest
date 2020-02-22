@@ -1,85 +1,153 @@
 import Mongoose from "mongoose";
 const Schema = Mongoose.Schema;
 
-const characterSchema = new Schema({
+const weaponSchema = newSchema({
     name: {
         type: String,
         required: true
     },
-    kindred: {
-        type: String,
-        required: true
-    },
-    level: {
+    weight: {
         type: Number,
-        required: true
+        required: true,
     },
-    character_type: {
+    cost: {
+        type: Number,
+        required: true,
+    },
+    dice: {
+        type: Number,
+        required: true,
+    },
+    adds: {
+        type: Number,
+        required: true,
+    }
+});
+const armourSchema = newSchema({
+    name: {
         type: String,
-    },
-    gender: {
-        type: String,
-    },
-    height: {
-        type: String
+        required: true,
     },
     weight: {
-        type: String
+        type: Number,
+        required: true,
     },
-    age: {
-        type: String
+    cost: {
+        type: Number,
+        required: true,
     },
-    hair: {
-        type: String
-    },
-    adventure_points: {
+    hits: {
         type: Number,
         required: true
+    }
+});
+const languageSchema = newSchema({
+    language: {
+        type: String,
+        required: true
+    }
+});
+const spellSchema = newSchema({
+    name: {
+        type: String,
+        required: true,
     },
-    atts: {
-        strength: {
+    cost: {
+        type: String,
+        required: true,
+    },
+    range: {
+        type: Number,
+    }
+});
+const characterSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    kin: {
+        type: String,
+        required: true,
+        enum: [`human`, `dwarf`, `elf`, `fairy`, `hobbit`, `leprechaun`],
+        default: `human`
+    },
+    type: {
+        type: String,
+        required: true,
+        enum: [`warrior`, `wizard`, `rouge`, `warrior-wizard`]
+    },
+    sex: {
+        type: String,
+        required: true,
+        enum: [`male`, `female`]
+    },
+    lvl: {
+        type: Number,
+        required: true,
+        default: 1
+    },
+    age: Number,
+    height: {
+        type: String,
+        required: true
+    },
+    weight: {
+        type: String,
+        required: true
+    },
+    primeAtts: {
+        ST: {
             type: Number,
             required: true
         },
-        constitution: {
+        IQ: {
             type: Number,
             required: true
         },
-        dexterity: {
+        LK: {
             type: Number,
             required: true
         },
-        speed: {
+        CON: {
             type: Number,
             required: true
         },
-        luck: {
+        DEX: {
             type: Number,
             required: true
         },
-        intelligence: {
-            type: Number,
-            required: true
-        },
-        wizardry: {
-            type: Number,
-            required: true
-        },
-        charisma: {
+        CHR: {
             type: Number,
             required: true
         }
     },
-    wtPossible: {
+    personalAdds: {
         type: Number,
         required: true
     },
-    wtCarried: {
+    weightPossible: {
         type: Number,
         required: true
     },
-    talents: {
-        type: Array,
+    weightCarried: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    gp: {
+        type: Number,
+        required: true,
+    },
+    ap: {
+        type: Number,
+        required: true
+    },
+    weapons: [weaponSchema],
+    armour: [armourSchema],
+    languages: [languageSchema],
+    magic: [spellSchema],
+    other: {
+        type: String,
         required: true
     }
 });

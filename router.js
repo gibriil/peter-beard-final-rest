@@ -5,7 +5,7 @@ import {
 
 export const router = express.Router();
 
-router.post(`/characters/create`, (req, res) => {
+router.post(`/characters`, (req, res) => {
     let character = new Character({
         name: req.body.name,
         level: req.body.level,
@@ -32,7 +32,7 @@ router.get(`/characters`, (req, res) => {
 });
 
 
-router.put(`/characters/update`, (req, res) => {
+router.patch(`/characters`, (req, res) => {
     Character.findById(req.body._id).then(character => {
         if (character) {
             let character = new Character({
@@ -45,7 +45,7 @@ router.put(`/characters/update`, (req, res) => {
 });
 
 
-router.delete(`/character/delete`, (req, res) => {
+router.delete(`/characters`, (req, res) => {
     console.log(req.body._id);
     Character.findByIdAndDelete(req.body._id).then(result => {
         res.send('deleted');
