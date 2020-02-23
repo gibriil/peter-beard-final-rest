@@ -44,3 +44,47 @@ For this project, I had to build a set of REST APIs using Node and ExpressJS.  T
     The ReadMe can be viewed at on the Github repo main page or the code can be viewed at [https://github.com/gibriil/peter-beard-final-rest/blob/master/README.md](https://github.com/gibriil/peter-beard-final-rest/blob/master/README.md). Instructions and install process below.
 
 ## Use Documentation
+
+The current state of the API allows for creation of a _**Tunnel & Trulls**_ character sheet as if you were writing it on paper. Future iterations of the API will allow POSTing dice rolls for calculation before storing in the DataBase instead of needing to submit the finalized stat.
+
+The POST/PUT keys are as follows: (All keys are required unless noted as Optional)
+
+```javascript
+    name //String
+    kin //String enum -- possible values: human, dwarf, elf, fairy, hobbit, and leprechaun
+    type //String enum -- possible values: warrior, wizard, rouge, warrior-wizard
+    sex //String enum -- possible values: male or female
+    lvl //Number -- default and starting level is 1
+    age //Number -- (optional) only needed of GM/DM deems it necessary.
+    height //String -- must be in the format #'#", ft.'inches"
+    weight //Number -- in lbs.
+    ST //Number -- must be the final calculated Strength based on dice roll and kin calculations
+    IQ  //Number -- must be the final calculated Intelligence based on dice roll and kin calculations
+    LK  //Number -- must be the final calculated Luck based on dice roll and kin calculations
+    CON  //Number -- must be the final calculated Constitution based on dice roll and kin calculations
+    DEX  //Number -- must be the final calculated Dexterity based on dice roll and kin calculations
+    CHR  //Number -- must be the final calculated Charisma based on dice roll and kin calculations
+    personalAdds //Number -- total based on rule book after all stats are calculated
+    weightPossible //Number -- weight in weight units - about 100x ST value
+    weightCarried //Number
+    gp //Number -- Current amount of Gold for the character
+    ap //Number -- Adventure Points or xp. Default is 0
+    weapons //Array of Objects --
+        name //String
+        weight //Number -- in weight units
+        cost //Number -- in GP
+        dice //Number -- Number of dice to use when using this weapon in combat
+        adds //Number -- amount to add to Personal Adds when using this item
+    armour //Array of Objects --
+        name //String
+        weight //Number -- in weight units
+        cost //Number -- in GP
+        hits //Number -- number of hits item can take before being destroyed. usually double for warriors
+    languages //Array of Objects --
+        language //String
+    magic //Array of Objects --
+        name //String
+        cost //String
+        range //Number
+    other //String - these are the General Supply inventory as well as any details needed on the card.
+```
