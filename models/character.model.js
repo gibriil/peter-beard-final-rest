@@ -147,10 +147,7 @@ const characterSchema = new Schema({
     armour: [armourSchema],
     languages: [languageSchema],
     magic: [spellSchema],
-    other: {
-        type: String,
-        // required: true
-    }
+    other: String
 });
 
 export const Character = Mongoose.model('Character', characterSchema);
