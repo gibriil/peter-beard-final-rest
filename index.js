@@ -7,7 +7,7 @@ import {
 } from './router.js';
 import {
     errorLog
-} from '../helpers/functions.js';
+} from './helpers/functions.js';
 
 const PORT = process.env.PORT || 5000;
 
