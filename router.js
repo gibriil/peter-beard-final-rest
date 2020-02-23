@@ -97,8 +97,3 @@ router.delete(`/characters`, (req, res) => {
         res.send('deleted');
     }).catch(error => console.log(error));
 });
-
-
-router.get('/', (req, res) => {
-    res.send('server working');
-});
