@@ -29,8 +29,18 @@ For this project, I had to build a set of REST APIs using Node and ExpressJS.  T
 
 - [x] datastore will contain at least 25 items
 
-    There are 14 items in the *General Supplies* collection. These items can be retrieved the the code, explained below, or on the deployed app at 
+    There are 14 items in the *General Supplies* collection. These items can be retrieved the the code, explained below, or on the deployed app at [https://pbeard-tunnels-and-trolls.herokuapp.com/generalsupply](https://pbeard-tunnels-and-trolls.herokuapp.com/generalsupply). All data for character sheets can be found in the *Characters* collection and the route for the deployed app is [https://pbeard-tunnels-and-trolls.herokuapp.com/characters](https://pbeard-tunnels-and-trolls.herokuapp.com/characters).
 
 - [x] app will be deployed to production using some service like Heroku, Digital Ocean, etc.
+
+    I decided to use Heroku for this portion because it seems to be the easiest for this piece. I the continuous deployment made the most sense to use with Heroku. The deployed app is at [https://pbeard-tunnels-and-trolls.herokuapp.com/](https://pbeard-tunnels-and-trolls.herokuapp.com/). There is no default route as this is not intended to be used without a separate front end.
+
 - [x] All source code will be properly uploaded to GitHub
+
+    Github is used for remote git storage. [View Github repo](https://github.com/gibriil/peter-beard-final-rest)
+
 - [x] ReadMe file will accurately describe the server install process (if any) and how to use the APIs
+
+    The ReadMe can be viewed at on the Github repo main page or the code can be viewed at [https://github.com/gibriil/peter-beard-final-rest/blob/master/README.md](https://github.com/gibriil/peter-beard-final-rest/blob/master/README.md). Instructions and install process below.
+
+## Use Documentation
