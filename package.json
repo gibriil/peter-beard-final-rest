@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "12.9.1"
+  },
   "scripts": {
     "start": "node -r esm index.js",
     "serve": "nodemon -r esm index.js"
