@@ -16,7 +16,6 @@ router.post(`/`, CreateCharacter);
 
 //Read
 router.get(`/:id`, FindOneCharacter);
-
 router.get(`/`, FindAllCharacters);
 
 //Update
