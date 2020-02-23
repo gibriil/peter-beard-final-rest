@@ -2,14 +2,16 @@ import express from 'express';
 import {
     GeneralSupply
 } from '../models/generalsupply.model.js';
-
+import {
+    errorCatch
+} from '../helpers/functions.js';
 
 export const router = express.Router();
 
 router.get(`/`, (req, res) => {
     GeneralSupply.find().then(result => {
         res.jsonp(result);
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 });
 
 router.post('/', (req, res) => {
@@ -21,5 +23,5 @@ router.post('/', (req, res) => {
     });
     supply.save().then(result => {
         res.jsonp(result);
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 });

@@ -1,6 +1,9 @@
 import {
     Character
 } from '../models/character.model.js';
+import {
+    errorCatch
+} from '../helpers/functions.js';
 
 export const CreateCharacter = (req, res) => {
     let character = new Character({
@@ -33,7 +36,7 @@ export const CreateCharacter = (req, res) => {
     });
     character.save().then(result => {
         res.jsonp(result);
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 };
 
 export const UpdateCharacter = (req, res) => {
@@ -68,23 +71,23 @@ export const UpdateCharacter = (req, res) => {
         character.save().then(result => {
             res.jsonp(result);
         }).catch(error => console.log(error));
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 };
 
 export const FindAllCharacters = (req, res) => {
     Character.find().then(result => {
         res.jsonp(result);
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 };
 
 export const FindOneCharacter = (req, res) => {
     Character.findById(req.params.id).then(result => {
         res.jsonp(result);
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 };
 
 export const DeleteOneCharacter = (req, res) => {
     Character.findByIdAndDelete(req.body._id).then(result => {
         res.send('deleted');
-    }).catch(error => console.log(error));
+    }).catch(errorCatch);
 };
