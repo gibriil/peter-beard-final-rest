@@ -45,9 +45,10 @@ For this project, I had to build a set of REST APIs using Node and ExpressJS.  T
 
 ## Use Documentation
 
-The current state of the API allows for creation of a _**Tunnel & Trulls**_ character sheet as if you were writing it on paper. Future iterations of the API will allow POSTing dice rolls for calculation before storing in the DataBase instead of needing to submit the finalized stat.
+The current state of the API allows for creation of a _**Tunnel & Trolls**_ character sheet as if you were writing it on paper. Future iterations of the API will allow POSTing dice rolls for calculation before storing in the DataBase instead of needing to submit the finalized stat.
 
-The POST/PUT keys are as follows: (All keys are required unless noted as Optional)
+### Create and Update
+The POST/PATCH keys for [/characters](https://pbeard-tunnels-and-trolls.herokuapp.com/characters) are as follows: (All keys are required unless noted as Optional)
 
 ```javascript
     name //String
@@ -59,11 +60,11 @@ The POST/PUT keys are as follows: (All keys are required unless noted as Optiona
     height //String -- must be in the format #'#", ft.'inches"
     weight //Number -- in lbs.
     ST //Number -- must be the final calculated Strength based on dice roll and kin calculations
-    IQ  //Number -- must be the final calculated Intelligence based on dice roll and kin calculations
-    LK  //Number -- must be the final calculated Luck based on dice roll and kin calculations
-    CON  //Number -- must be the final calculated Constitution based on dice roll and kin calculations
-    DEX  //Number -- must be the final calculated Dexterity based on dice roll and kin calculations
-    CHR  //Number -- must be the final calculated Charisma based on dice roll and kin calculations
+    IQ //Number -- must be the final calculated Intelligence based on dice roll and kin calculations
+    LK //Number -- must be the final calculated Luck based on dice roll and kin calculations
+    CON //Number -- must be the final calculated Constitution based on dice roll and kin calculations
+    DEX //Number -- must be the final calculated Dexterity based on dice roll and kin calculations
+    CHR //Number -- must be the final calculated Charisma based on dice roll and kin calculations
     personalAdds //Number -- total based on rule book after all stats are calculated
     weightPossible //Number -- weight in weight units - about 100x ST value
     weightCarried //Number
@@ -88,3 +89,33 @@ The POST/PUT keys are as follows: (All keys are required unless noted as Optiona
         range //Number
     other //String - these are the General Supply inventory as well as any details needed on the card.
 ```
+
+the **_id** is required to make the PATCH request. The **_id** will be returned upon creation of the character sheet.
+
+### Delete
+
+Pass the **_id** to [/characters](https://pbeard-tunnels-and-trolls.herokuapp.com/characters) as a DELETE request. If successful, the character sheet will be deleted from the MongoDB Collection.
+
+### Read
+
+There are 3 different GET endpoints available.
+
+#### Get all character sheets
+
+Hit the [/characters](https://pbeard-tunnels-and-trolls.herokuapp.com/characters) endpoint as a GET request to return all character sheets currently stored in the MongoDB collection.
+
+you can request a single character sheet with the **_id** returned on creation. Hit [/characters/:id](https://pbeard-tunnels-and-trolls.herokuapp.com/characters/) where :id equals _id. example:
+
+```
+https://pbeard-tunnels-and-trolls.herokuapp.com/characters/5e51b66fcdc94500f8b7d497
+```
+
+#### Get all General Supplies
+There is a collection of General Supplies available as the 3rd required GET endpoint. These can be retrieved by hitting [/generalsupply](https://pbeard-tunnels-and-trolls.herokuapp.com/generalsupply) as a GET request.
+
+## Local server installation and use
+Cloning the repo will allow you to run the serve locally to make these requests. Start by cloning the repo and running `npm install` on the directory.
+
+`npm start` will run the server in a "production" mode with out edit and auto-restart features.
+
+`npm run serve` will run the server with the **nodemon** package to auto-restart when edits are made.
