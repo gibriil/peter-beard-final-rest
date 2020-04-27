@@ -143,10 +143,10 @@ const characterSchema = new Schema({
         required: true,
         default: 0
     },
-    weapons: [weaponSchema],
-    armour: [armourSchema],
-    languages: [languageSchema],
-    magic: [spellSchema],
+    weapons: [String],
+    armour: [String],
+    languages: [String],
+    magic: [String],
     other: String
 });
 
