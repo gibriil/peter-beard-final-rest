@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import Mongoose from "mongoose";
-
+import cors from 'cors';
 import {
     router
 } from './router.js';
@@ -16,6 +16,9 @@ const app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+app.use(cors({
+    origin: '*'
+}));
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
