@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.use(cors({
-    origin: '*'
+    origin: false
 }));
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', '*');
