@@ -87,7 +87,7 @@ export const FindOneCharacter = (req, res) => {
 };
 
 export const DeleteOneCharacter = (req, res) => {
-    Character.findByIdAndDelete(req.body._id).then(result => {
+    Character.findByIdAndRemove(req.body._id).then(result => {
         res.send('deleted');
     }).catch(errorCatch);
 };
